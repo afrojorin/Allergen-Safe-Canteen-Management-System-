@@ -1,0 +1,61 @@
+===============================================================
+  CANTEEN MANAGEMENT SYSTEM - How to Run
+===============================================================
+
+PERMANENT LINK (works every time XAMPP is running):
+
+  http://localhost/canteen/index.php
+
+OTHER PAGES:
+  Homepage:     http://localhost/canteen/index.php
+  Menu/Shop:    http://localhost/canteen/shop.php
+  Cart:         http://localhost/canteen/cart.php
+  Checkout:     http://localhost/canteen/checkout.php
+  Login:        http://localhost/canteen/login.php
+  Profile:      http://localhost/canteen/profile.php
+  About:        http://localhost/canteen/about.php
+  phpMyAdmin:   http://localhost/phpmyadmin
+
+LOGIN CREDENTIALS:
+  Email:     test@example.com
+  Password:  password123
+
+===============================================================
+  HOW TO RUN EVERY TIME
+===============================================================
+
+1. Open XAMPP Control Panel
+2. Start "Apache" and "MySQL"
+3. Open browser and go to:  http://localhost/canteen/
+
+That's it! The site will load every time.
+
+===============================================================
+  FIRST-TIME SETUP (already done - only if you need to redo)
+===============================================================
+
+Open PowerShell and run these commands one by one:
+
+STEP 1 - Copy project to XAMPP:
+  Copy-Item -Recurse -Force "C:\Users\Admin\Downloads\canteen-system-main\canteen-system-main" "C:\xampp\htdocs\canteen"
+
+STEP 2 - Create database:
+  & "C:\xampp\mysql\bin\mysql.exe" -u root -e "DROP DATABASE IF EXISTS canteen_backend; CREATE DATABASE canteen_backend CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
+
+STEP 3 - Import database:
+  Get-Content "C:\xampp\htdocs\canteen\database.sql" -Encoding UTF8 | & "C:\xampp\mysql\bin\mysql.exe" -u root --default-character-set=utf8mb4 canteen_backend
+
+STEP 4 - Open in browser:
+  Start-Process "http://localhost/canteen/index.php"
+
+===============================================================
+  IF YOU EDIT PROJECT FILES
+===============================================================
+
+If you make changes to files in:
+  C:\Users\Admin\Downloads\canteen-system-main\canteen-system-main
+
+Re-deploy by running Step 1 again (copy command above).
+If you change database.sql, also re-run Steps 2 and 3.
+
+===============================================================
